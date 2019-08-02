@@ -1,0 +1,28 @@
+<div class="container col-md-6">
+  <div class="title">
+    <span>Log in to get access</span>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-0">
+      <input type="email" formControlName="email" class="form-control" placeholder=" Username or Email" />
+      <span class="icon"><i class="fa fa-user"></i></span>
+    </div>
+    <div class="error" *ngIf="submitted && controls.email.invalid">
+      <span *ngIf="controls.email.errors.required">Email is required </span>
+      <span *ngIf="controls.email.errors.email">Enter valid email</span>
+    </div>
+    <div class="form-group mt-4 mb-0">
+      <input type="password" formControlName="password" class="form-control" id="pwd" placeholder="Password">
+      <span class="icon"><i class="fa fa-lock"></i></span>
+    </div>
+    <div class="error" *ngIf="submitted && controls.password.invalid">
+      <span *ngIf="controls.password.errors.required">Password is required </span>
+    </div>
+    <div class="form-group mt-4">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+    <div class="form-group mt-4 mb-0">
+      <span>New User? <a [routerLink]="['/signup']">Sign up here</a></span>
+    </div>
+  </form>
+</div>
